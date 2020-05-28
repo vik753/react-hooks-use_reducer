@@ -1,13 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import 'bootstrap/scss/bootstrap.scss'
-
-
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import "bootstrap/scss/bootstrap.scss";
+import Alert from "./components/Alert";
+import AlertState from "./state/alert/alertState";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <AlertState>
+    <Alert alert={{text: 'Hello'}} />
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </AlertState>,
+  document.getElementById("root")
 );
