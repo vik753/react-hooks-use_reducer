@@ -1,15 +1,16 @@
-import React, { useContext } from "react";
-import AlertContext from "../state/alert/alertContext";
+import React from "react";
+import { AlertContext } from "../contexts/Alert/AlertContexxt";
 
-const Alert = () => {
-  const { alert, hide } = useContext(AlertContext);
+const Alert = (props) => {
+  const { alert, hide } = React.useContext(AlertContext);
+
   if (!alert) return null;
 
   return (
     <div
-      className={`alert alert-${alert.type || "secondary"} alert-dismissible`}
+      className={`alert alert-${alert.type} alert-dismissible fade show`}
       role="alert"
-      style={{position: 'fixed', top:'20px', right: '20px'}}
+      style={{ position: "fixed", top: "11px", right: "11px" }}
     >
       {alert.text}
       <button
