@@ -1,3 +1,8 @@
-export const SHOW_ALERT = "SHOW_ALERT";
-export const HIDE_ALERT = "HIDE_ALERT";
-export const ADD_NOTE = "ADD_NOTE";
+const ADD_NOTE = "ADD_NOTE";
+const DELETE_NOTE = "DELETE_NOTE";
+const EDIT_NOTE = "EDIT_NOTE";
+
+const SHOW_ALERT = "SHOW_ALERT";
+const HIDE_ALERT = "HIDE_ALERT";
+
+export { ADD_NOTE, DELETE_NOTE, SHOW_ALERT, HIDE_ALERT, EDIT_NOTE };
