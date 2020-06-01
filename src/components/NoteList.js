@@ -23,25 +23,37 @@ const NoteList = (props) => {
     const createdDate = new Date(note.created).toDateString();
     const createdHours = new Date(note.created).getHours();
     const createdMinutes = new Date(note.created).getMinutes();
+    const doneStyle = { color: "green", cursor: "pointer", marginLeft: "11px" };
+    const notDoneStyle = {
+      color: "blue",
+      cursor: "pointer",
+      marginLeft: "11px",
+    };
     return (
       <li
         key={note.id}
         className="d-flex list-group-item justify-content-between"
       >
         <span>{note.text} </span>
-        <span>{`Created: ${createdDate} at ${createdHours}:${createdMinutes}`}</span>
-        <span className="">
+        <span>
+          <span>{`Created: ${createdDate} at ${createdHours}:${createdMinutes}`}</span>
           <span
-            style={{ cursor: "pointer", marginLeft: "11px" }}
+            style={note.done ? doneStyle : notDoneStyle}
             onClick={() => doneNote(note.id)}
           >
             {note.done ? "done" : "not done"}
           </span>
           <span
-            style={{ cursor: "pointer", marginLeft: "11px" }}
+            style={{
+              cursor: "pointer",
+              marginLeft: "11px",
+              border: "1px solid tomato",
+              borderRadius: "4px",
+              padding: "0 6px",
+            }}
             onClick={() => deleteNote(note.id)}
           >
-            <b>X</b>
+            <b style={{ color: "tomato" }}>X</b>
           </span>
         </span>
       </li>

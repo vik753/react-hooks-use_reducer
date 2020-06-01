@@ -1,8 +1,8 @@
 import React from "react";
 import NoteContext from "../contexts/NoteContext";
-import NoteList from "./NoteList";
 
 const Notes = (props) => {
+  console.log("Notes props:", props);
   const noteContext = React.useContext(NoteContext);
   const { addNote } = noteContext;
 
@@ -24,6 +24,7 @@ const Notes = (props) => {
     const newNote = createNote();
     addNote(newNote);
     setInputState("");
+    props.history.push("/");
   };
 
   return (
@@ -42,7 +43,6 @@ const Notes = (props) => {
       <button type="submit" className="btn btn-primary">
         Submit
       </button>
-      <NoteList />
     </form>
   );
 };
