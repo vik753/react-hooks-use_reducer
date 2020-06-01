@@ -1,5 +1,6 @@
 import React from "react";
 import NoteContext from "../contexts/NoteContext";
+import NoteList from "./NoteList";
 
 const Notes = (props) => {
   const noteContext = React.useContext(NoteContext);
@@ -9,10 +10,12 @@ const Notes = (props) => {
 
   const createNote = () => {
     const id = `${Math.random()}-${new Date().getTime()}`;
+    const created = new Date().getTime();
     return {
       id,
-      text: inputState,
+      text: inputState.trim(),
       done: false,
+      created,
     };
   };
 
@@ -33,12 +36,13 @@ const Notes = (props) => {
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
           value={inputState}
-          onChange={(e) => setInputState(e.target.value.trim())}
+          onChange={(e) => setInputState(e.target.value)}
         />
       </div>
       <button type="submit" className="btn btn-primary">
         Submit
       </button>
+      <NoteList />
     </form>
   );
 };
